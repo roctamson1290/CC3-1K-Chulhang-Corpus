@@ -49,27 +49,6 @@ public class Activity1 {
         System.out.println("\nMEAN: "+Mean);
     }
    
-   
-    public static void Sort(int Array[]){
-        boolean swapped = true;
-        int j = 0;
-        int tmp;
-        while (swapped) {
-            swapped = false;
-            j++;
-            for (int i = 0; i < Array.length - j; i++) {
-                if (Array[i] > Array[i + 1]) {
-                    tmp = Array[i];
-                    Array[i] = Array[i + 1];
-                    Array[i + 1] = tmp;
-                    swapped = true;
-                }
-            }
-        }
-        GetMode(Array);
-    }
-   
-   
     public static void GetMode(int Array[]){
         int maxValue = 0, maxCount = 0;
 

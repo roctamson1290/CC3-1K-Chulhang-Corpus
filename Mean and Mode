@@ -1,0 +1,89 @@
+package activity1;
+
+import java.util.Scanner;
+
+public class Activity1 {
+
+    public static void main(String[] args){
+       
+        Scanner sc = new Scanner(System.in);
+       
+        System.out.print("Size of the data: ");
+        int count = Integer.parseInt(sc.nextLine());
+        System.out.println("");
+        Inputs(count);
+        System.out.println("");
+       
+    }
+   
+    public static void Inputs(int count){
+        Scanner sc = new Scanner(System.in);
+        int []Array = new int[count];
+       
+        for(int i =0; i < count; i++){
+            System.out.print("Input Value for data "+(i+1)+":");
+            int Val = Integer.parseInt(sc.nextLine());
+            Array[i]=Val;
+        }
+       
+        System.out.println("");
+        System.out.print("[");
+       
+        for(int i = 0; i<Array.length-1; i++){
+            System.out.print(Array[i]+",");
+        }
+       
+        System.out.print(Array[Array.length-1]);
+        System.out.print("]\n");
+        GetMean(Array);
+        Sort(Array);
+    }
+   
+    public static void GetMean(int Array[]){
+        double sum = 0;
+        for (int i = 0; i < Array.length; i++) {
+            sum += Array[i];
+        }
+       
+        double Mean = sum/Array.length;
+        System.out.println("\nMEAN: "+Mean);
+    }
+   
+   
+    public static void Sort(int Array[]){
+        boolean swapped = true;
+        int j = 0;
+        int tmp;
+        while (swapped) {
+            swapped = false;
+            j++;
+            for (int i = 0; i < Array.length - j; i++) {
+                if (Array[i] > Array[i + 1]) {
+                    tmp = Array[i];
+                    Array[i] = Array[i + 1];
+                    Array[i + 1] = tmp;
+                    swapped = true;
+                }
+            }
+        }
+        GetMode(Array);
+    }
+   
+   
+    public static void GetMode(int Array[]){
+        int maxValue = 0, maxCount = 0;
+
+        for (int i = 0; i < Array.length; ++i) {
+            int count = 0;
+            for (int j = 0; j < Array.length; ++j) {
+                if (Array[j] == Array[i]) ++count;
+            }
+           
+            if (count > maxCount) {
+                maxCount = count;
+                maxValue = Array[i];
+            }
+        }
+        System.out.println("MODE: " + maxValue);
+    }
+}
